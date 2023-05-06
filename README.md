@@ -1,7 +1,7 @@
 # ARKit Blendshape Helper
 With this Blender addon, you can use ARKit blendshapes to animate any 3D model's face with facial motion capture. The addon automatically creates and applies shape keys to your model that match the ARKit facial expressions. This way, you can easily convert your facial rig into ARKit compatible blendshapes.
 
-## To Install ARKitHelper.py follow these steps:
+## To Install ARKitHelper.py, follow these steps:
 - Download the file from github using this link: [https://github.com/elijah-atkins/ARKitBlendshapeHelper/ARKitHelper.py](https://github.com/elijah-atkins/ARKitBlendshapeHelper/blob/main/ARKitHelper)
 - Open Blender and go to Edit > Preferences > Addons
 - Click on "Install" and navigate to the script file you downloaded. Select the file and click "Install Add-on".

@@ -18,7 +18,7 @@ With this Blender addon, you can use ARKit blendshapes to animate any 3D model's
 - Select a target object by clicking on the "Target Object" dropdown and choosing an object from the list.(The duplicate)
 - Click "Create ARKit Blendshapes" and wait for the addon to generate the blendshapes on the target head.
 
-The name and order of each blendshape that ARKit uses to describe faces.
+### The name and order of each blendshape that ARKit uses to describe faces.
   1: 'eyeBlinkLeft',
   2: 'eyeLookDownLeft',
   3: 'eyeLookInLeft',

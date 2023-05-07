@@ -3,7 +3,7 @@ bl_info = {
     "author": "Elijah Atkins",
     "description": "ARKit Helper Add-on",
     "blender": (2, 93, 0),
-    "version": (1, 0, 1),
+    "version": (1, 0, 0),
     "location": "View3D > Sidebar > ARKit Helper",
     "category": "Animation"
 }

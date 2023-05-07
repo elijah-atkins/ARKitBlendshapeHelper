@@ -5,6 +5,10 @@ name: Build Releases
 on:
   push:
     tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+permissions:
+  actions: read
+  contents: read
+  security-events: write
 jobs:
   build:
     runs-on: ubuntu-latest

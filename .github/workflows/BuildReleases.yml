@@ -35,7 +35,7 @@ jobs:
       - name: Create versioned build with filtered zip file.
         run: |
           # Change into the repository directory since it was checked out to a sub folder.
-         # cd ${{ github.event.repository.name }}
+          cd ${{ github.event.repository.name }}
           # Create the versioned release and add the built zip file.
           # To add a custom release-notes file, add: -F <filename>
           gh release create ${{github.ref_name}} --generate-notes ../${{ github.event.repository.name }}.zip

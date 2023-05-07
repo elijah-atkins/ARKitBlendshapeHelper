@@ -1,14 +1,5 @@
-bl_info = {
-    "name": "ARKit Blendshape Helper",
-    "author": "Elijah Atkins",
-    "version": (1, 0),
-    "blender": (2, 93, 0),
-    "location": "View3D > Sidebar > ARKit Helper",
-    "description": "ARKit Helper Add-on",
-    "category": "Animation"
-}
-
 import bpy
+from .facial_rig_names import FacialRigNames
 
 class FacialRigOperator(bpy.types.Operator):
     bl_idname = "object.facial_rig_operator"
@@ -152,105 +143,11 @@ class FacialRigOperator(bpy.types.Operator):
         # get its shapekeys
         shape_keys = selected_object.data.shape_keys.key_blocks
 
-        names = ['eyeBlinkLeft', 'eyeLookDownLeft', 'eyeLookInLeft', 'eyeLookOutLeft', 'eyeLookUpLeft', 'eyeSquintLeft', 'eyeWideLeft', 'eyeBlinkRight', 'eyeLookDownRight', 'eyeLookInRight', 'eyeLookOutRight', 'eyeLookUpRight', 'eyeSquintRight', 'eyeWideRight', 'jawForward', 'jawLeft', 'jawRight', 'jawOpen', 'mouthClose', 'mouthFunnel', 'mouthPucker', 'mouthRight', 'mouthLeft', 'mouthSmileLeft', 'mouthSmileRight', 'mouthFrownRight', 'mouthFrownLeft', 'mouthDimpleLeft', 'mouthDimpleRight', 'mouthStretchLeft', 'mouthStretchRight', 'mouthRollLower', 'mouthRollUpper', 'mouthShrugLower', 'mouthShrugUpper', 'mouthPressLeft', 'mouthPressRight', 'mouthLowerDownLeft', 'mouthLowerDownRight', 'mouthUpperUpLeft', 'mouthUpperUpRight', 'browDownLeft', 'browDownRight', 'browInnerUp', 'browOuterUpLeft', 'browOuterUpRight', 'cheekPuff', 'cheekSquintLeft', 'cheekSquintRight', 'noseSneerLeft', 'noseSneerRight', 'tongueOut']
-
         # loop through shapekeys and replace the names
         for index, key in enumerate(shape_keys):
             if key.name != "Basis":
-                try: key.name = names[index - 1]
+                try: key.name = FacialRigNames.names[index]
                 except: pass
 
 
         return {'FINISHED'}
-
-class FacialRigPanel(bpy.types.Panel):
-    bl_idname = "OBJECT_PT_facial_rig_panel"
-    bl_label = "ARKit Helper"
-    bl_space_type = 'VIEW_3D'
-    bl_region_type = 'UI'
-    bl_category = "ARKit Helper"
-    names = {
-        0: 'Basis',
-        1: 'eyeBlinkLeft',
-        2: 'eyeLookDownLeft',
-        3: 'eyeLookInLeft',
-        4: 'eyeLookOutLeft',
-        5: 'eyeLookUpLeft',
-        6: 'eyeSquintLeft',
-        7: 'eyeWideLeft',
-        8: 'eyeBlinkRight',
-        9: 'eyeLookDownRight',
-        10: 'eyeLookInRight',
-        11: 'eyeLookOutRight',
-        12: 'eyeLookUpRight',
-        13: 'eyeSquintRight',
-        14: 'eyeWideRight',
-        15: 'jawForward',
-        16: 'jawLeft',
-        17: 'jawRight',
-        18: 'jawOpen',
-        19: 'mouthClose',
-        20: 'mouthFunnel',
-        21: 'mouthPucker',
-        22: 'mouthRight',
-        23: 'mouthLeft',
-        24: 'mouthSmileLeft',
-        25: 'mouthSmileRight',
-        26: 'mouthFrownRight',
-        27: 'mouthFrownLeft',
-        28: 'mouthDimpleLeft',
-        29: 'mouthDimpleRight',
-        30: 'mouthStretchLeft',
-        31: 'mouthStretchRight',
-        32: 'mouthRollLower',
-        33: 'mouthRollUpper',
-        34: 'mouthShrugLower',
-        35: 'mouthShrugUpper',
-        36: 'mouthPressLeft',
-        37: 'mouthPressRight',
-        38: 'mouthLowerDownLeft',
-        39: 'mouthLowerDownRight',
-        40: 'mouthUpperUpLeft',
-        41: 'mouthUpperUpRight',
-        42: 'browDownLeft',
-        43: 'browDownRight',
-        44: 'browInnerUp',
-        45: 'browOuterUpLeft',
-        46: 'browOuterUpRight',
-        47: 'cheekPuff',
-        48: 'cheekSquintLeft',
-        49: 'cheekSquintRight',
-        50: 'noseSneerLeft',
-        51: 'noseSneerRight',
-        52: 'tongueOut'
-    }
-
-    def draw(self, context):
-        layout = self.layout
-        # Add source object property
-        layout.prop(context.scene, "arkit_source_object", text="Source Object")
-        # Add target object property
-        layout.prop(context.scene, "arkit_target_object", text="Target Object")
-        layout.label( text="Set poses on frames 1-52")
-        frame_number = context.scene.frame_current
-        if frame_number in self.names:
-            layout.label(text="Pose: " + self.names[frame_number])
-        else:
-            layout.label(text="No name for this frame.")
-        row = layout.row()
-        row.operator("object.facial_rig_operator", text="Create ARKit Blendshapes")
-
-def register():
-    bpy.utils.register_class(FacialRigOperator)
-    bpy.utils.register_class(FacialRigPanel)
-    bpy.types.Scene.arkit_source_object = bpy.props.PointerProperty(type=bpy.types.Object)
-    bpy.types.Scene.arkit_target_object = bpy.props.PointerProperty(type=bpy.types.Object)
-
-def unregister():
-    bpy.utils.unregister_class(FacialRigOperator)
-    bpy.utils.unregister_class(FacialRigPanel)
-    del bpy.types.Scene.arkit_target_object
-    del bpy.types.Scene.arkit_source_object
-
-if __name__ == "__main__":
-    register()

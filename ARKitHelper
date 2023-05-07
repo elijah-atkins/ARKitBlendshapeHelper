@@ -231,10 +231,10 @@ class FacialRigPanel(bpy.types.Panel):
         layout.prop(context.scene, "arkit_source_object", text="Source Object")
         # Add target object property
         layout.prop(context.scene, "arkit_target_object", text="Target Object")
-        layout.label( text="Set Pose on frames 1-52")
+        layout.label( text="Set poses on frames 1-52")
         frame_number = context.scene.frame_current
         if frame_number in self.names:
-            layout.label(text=self.names[frame_number])
+            layout.label(text="Pose: " + self.names[frame_number])
         else:
             layout.label(text="No name for this frame.")
         row = layout.row()

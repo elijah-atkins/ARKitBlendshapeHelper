@@ -7,6 +7,8 @@ on:
     tags: ["v[0-9]+.[0-9]+.[0-9]+"]
 jobs:
   build:
+    permissions:
+      issues: 'write'
     runs-on: ubuntu-latest
     steps:
       # Check-out the repository under: $GITHUB_WORKSPACE/<repository-name>

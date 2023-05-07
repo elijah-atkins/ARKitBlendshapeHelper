@@ -1,0 +1,44 @@
+# Build a release containing .zip of the (filtered) contents of the repository
+# when a new tag is pushed with a semantic versioning format.
+name: Build Releases
+
+on:
+  push:
+    tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Check-out the repository under: $GITHUB_WORKSPACE/<repository-name>
+      # Note: While this makes zipping the repository with a root folder easier,
+      # all 'gh' commands must be executed after cd'ing into the sub-directory.
+      - uses: actions/checkout@v3
+        with:
+          path: ${{ github.event.repository.name }}
+
+      # Create a zip of the repository.
+      - name: Zip Repository (excludes .git*)
+        run: |
+          # Zip the contents underneath a root directory (the repository's name) as
+          # required by Blender for <repository-name>/__init__.py style add-ons.
+          # See below for single-file add-ons that do not need a root directory. 
+          zip -r ${{ github.event.repository.name }}.zip \
+            ${{ github.event.repository.name }} \
+            -x "${{ github.event.repository.name }}/.git*"
+          
+          # If a root folder is not desired, use the following and comment out the above.
+          #cd ${{ github.event.repository.name }}
+          #zip -r ../${{ github.event.repository.name }}.zip . -x ".git*"
+      
+      # Create a new release using the tag name or commit id.
+      - name: Create versioned build with filtered zip file.
+        run: |
+          # Change into the repository directory since it was checked out to a sub folder.
+          cd ${{ github.event.repository.name }}
+          # Create the versioned release and add the built zip file.
+          # To add a custom release-notes file, add: -F <filename>
+          gh release create ${{github.ref_name}} --generate-notes ../${{ github.event.repository.name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      

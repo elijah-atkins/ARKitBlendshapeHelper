@@ -43,5 +43,4 @@ jobs:
           # To add a custom release-notes file, add: -F <filename>
           gh release create ${{github.ref_name}} --generate-notes ../${{ github.event.repository.name }}.zip
         env:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

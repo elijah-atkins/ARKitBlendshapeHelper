@@ -5,6 +5,7 @@ name: Build Releases
 on:
   push:
     tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,8 +16,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           path: ${{ github.event.repository.name }}
-          github_token: ${{ secrets.github_token }}
-
 
       # Create a zip of the repository.
       - name: Zip Repository (excludes .git*)
@@ -33,7 +32,13 @@ jobs:
           #zip -r ../${{ github.event.repository.name }}.zip . -x ".git*"
       
       # Create a new release using the tag name or commit id.
-
+      - name: Create versioned build with filtered zip file.
+        run: |
+          # Change into the repository directory since it was checked out to a sub folder.
+          cd ${{ github.event.repository.name }}
+          # Create the versioned release and add the built zip file.
+          # To add a custom release-notes file, add: -F <filename>
+          gh release create ${{github.ref_name}} --generate-notes ../${{ github.event.repository.name }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       

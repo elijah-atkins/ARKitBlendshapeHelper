@@ -2,6 +2,7 @@
 With this Blender addon, you can use ARKit blendshapes to animate any 3D model's face with facial motion capture. The addon automatically creates and applies shape keys to your model that match the ARKit facial expressions. This way, you can easily convert your facial rig into ARKit compatible blendshapes.
 
 **Code adapted from** [FREE-AUTOMATIC Facial MoCap Shapekeys (Blender)](https://www.youtube.com/watch?v=61QUzH34l1I)
+
 **Credits to TheRoyalSkies on youtube**  
 [@TheRoyalSkies](https://www.youtube.com/@TheRoyalSkies)  
 

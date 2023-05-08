@@ -10,7 +10,7 @@ With this Blender addon, you can use ARKit blendshapes to animate any 3D model's
 - Download the file from github using this link: [https://github.com/elijah-atkins/ARKitBlendshapeHelper/releases/download/v1.0.0/ARKitBlendshapeHelper.zip](https://github.com/elijah-atkins/ARKitBlendshapeHelper/releases/download/v1.0.0/ARKitBlendshapeHelper.zip)
 - Open Blender and go to Edit > Preferences > Addons
 - Click on "Install" and navigate to the script file you downloaded. Select the file and click "Install Add-on".
-- Enable the "ARKit Helper" add-on by checking the box next to it.
+- Enable the "ARKit Blendshape Helper" add-on by checking the box next to it.
 - In the 3D Viewport, go to the Sidebar (press N) and find the "ARKit Helper" panel.
 
 ## To use the blender addon ARKitBlendshapeHelper:

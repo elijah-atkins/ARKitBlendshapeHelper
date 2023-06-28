@@ -14,6 +14,8 @@ With this Blender addon, you can use ARKit blendshapes to animate any 3D model's
 - In the 3D Viewport, go to the Sidebar (press N) and find the "ARKit Helper" panel.
 
 ## To use the blender addon ARKitBlendshapeHelper:
+To use Arkit Helper, add a temporary facial rig on your character model. You can create a facial rig with rigify "Human" meta-rig or Auto-rig Pro (a paid add-on that simplifies rigging).
+
 - Rig your character using your preferred method.
 - Set a resting Basis pose on frame 0
 - Create 52 ARKit poses for your character in frames 1-52. You can use the reference for the blendshapes here: https://arkit-face-blendshapes.com/ 

@@ -1,10 +1,26 @@
 # ARKit Blendshape Helper
-With this Blender addon, you can use ARKit blendshapes to animate any 3D model's face with facial motion capture. The addon automatically creates and applies shape keys to your model that match the ARKit facial expressions. This way, you can easily convert your facial rig into ARKit compatible blendshapes.
+
+This Blender addon is designed to streamline the process of converting a pre-existing facial rig into ARKit-compatible blendshapes. It allows you to use facial motion capture to animate any 3D model's face by automatically creating and applying shape keys that match the ARKit facial expressions.
+
+> **Note:** This addon requires your 3D model to have an existing facial rig that can be posed for each expression.
 
 **Code adapted from** [FREE-AUTOMATIC Facial MoCap Shapekeys (Blender)](https://www.youtube.com/watch?v=61QUzH34l1I)
 
 **Credits to TheRoyalSkies on youtube**  
 [@TheRoyalSkies](https://www.youtube.com/@TheRoyalSkies)  
+
+# ARKit Facial Blendshape Guide by PooyaDeperson
+
+A new high-quality resource has been created by **PooyaDeperson** to assist with rigging facial animations. This guide focuses on creating the 52 facial blendshapes used in ARKit.
+
+The website provides a detailed guide with the following features:
+
+* **Muscle group anatomy visuals** to help with understanding the underlying structure.
+* An easy way to **copy and paste the blendshapes**, useful for creating them from scratch.
+
+You can find the full guide at the link below:
+
+[**The Ultimate Guide to Creating ARKit's 52 Facial Blendshapes**](https://pooyadeperson.com/the-ultimate-guide-to-creating-arkits-52-facial-blends
 
 ## To Install ARKitHelper.py:
 - Download the file from github using this link: [https://github.com/elijah-atkins/ARKitBlendshapeHelper/releases/download/v1.0.0/ARKitBlendshapeHelper.zip](https://github.com/elijah-atkins/ARKitBlendshapeHelper/releases/download/v1.0.0/ARKitBlendshapeHelper.zip)
